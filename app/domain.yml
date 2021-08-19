@@ -1,0 +1,328 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- my_name
+- cust_id
+- checkcustStatus
+- Apply_Loan
+- Deposit
+- CustomerCare
+- greet
+- mobile_number
+- check_balance
+- record_authenticate
+- record_enroll
+- enroll_now
+- OpenNewAccount
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- tell_name
+- play_video
+- out_of_scope
+- authenticate_now
+- applyServices
+- verify_now
+- Fund_Transfer
+entities:
+- AccType
+- DepositType
+- LoanType
+- cust_id
+- custType
+- name
+- number
+- serviceType
+- transfer_type
+slots:
+  amount:
+    type: text
+    influence_conversation: true
+  currentIntent:
+    type: text
+    influence_conversation: true
+  name:
+    type: text
+    influence_conversation: true
+  number:
+    type: text
+    influence_conversation: true
+  cust_id:
+    type: text
+    influence_conversation: true
+  serviceType:
+    type: text
+    influence_conversation: true
+  AccType:
+    type: text
+    influence_conversation: true
+  LoanType:
+    type: text
+    influence_conversation: true
+  DepositType:
+    type: text
+    influence_conversation: true
+  tran_Acc_no:
+    type: text
+    influence_conversation: true
+  BiometricStatus:
+    type: categorical
+    influence_conversation: true
+    values:
+    - enrolled
+    - not enrolled
+  BiometricID:
+    type: categorical
+    influence_conversation: true
+    values: []
+  EnrollmentStatus:
+    type: categorical
+    influence_conversation: true
+    values:
+    - success
+    - failed
+  verificationStatus:
+    type: categorical
+    influence_conversation: true
+    values:
+    - success
+    - failed
+  custType:
+    type: text
+    influence_conversation: true
+  transfer_type:
+    type: text
+    influence_conversation: true
+responses:
+  utter_ask_amount:
+  - text: Please enter the amount to be transferred
+  utter_account_balance:
+  - text: Your Account balance is 83741.
+  utter_greet:
+  - text: Hey! I am an AI powered  bot to handle banking related queries. How can i help you today?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Thanks for reaching us! Have a nice day!!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_name:
+  - text: May i know your name please?
+  utter_ask_number:
+  - text: Please enter your mobile number
+  utter_ask_cust_id:
+  - text: Please enter your customer ID
+  utter_ask_tran_Acc_no:
+  - text: Enter the beneficiary account number
+  utter_ask_AccType:
+  - text: What type of account?
+    buttons:
+    - payload: /OpenNewAccount{{"AccType":"savings"}}
+      title: Savings
+    - payload: /OpenNewAccount{{"AccType":"current"}}
+      title: Current
+  utter_ask_custType:
+  - text: Are you a new customer or existing customer?
+    buttons:
+    - payload: /checkcustStatus{{"custType":"existing"}}
+      title: Existing
+    - payload: /checkcustStatus{{"custType":"new"}}
+      title: New
+  utter_thanks:
+  - text: Thanks for providing the values.
+  utter_details_thanks:
+  - text: |-
+      Thanks for providing the given details. 
+      Name: {Name},
+      Mobile Number: {Mobile_number}
+  utter_out_of_scope:
+  - text: Sorry, I didn't get what you said. Please rephrase what you said.
+  utter_contact_agent_prompt:
+  - text: Your request to connect to an agent is received. You will recieve a callback on your registered mobile number
+  utter_need_assistance:
+  - text: Do you need any further assistance?
+    buttons:
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+  utter_enroll_yourself:
+  - text: Enrolling is a one time process. To enroll, press the record button and read the following..
+  utter_authenticate_yourself:
+  - text: To authenticate, press the record button and read the following..
+  utter_text_to_enroll:
+  - text: Kaizen Secure Voiz is a new breed technology Start-up under Kaizen Technologies. The group, has been providing superior information technology, talent and solutions to private and public sector customers since 1995.A Kaizentek reputation as an IT expert is built on a decade of experience as a full-spectrum source for the IT community.
+    buttons:
+    - payload: /record_enroll
+      title: Record
+  utter_text_to_authenticate:
+  - text: Kaizen Secure Voiz is a new breed technology Start-up under Kaizen Technologies. The group, has been providing superior information technology, talent and solutions to private and public sector customers since 1995.A Kaizentek reputation as an IT expert is built on a decade of experience as a full-spectrum source for the IT community.
+    buttons:
+    - payload: /record_authenticate
+      title: Record
+  utter_recording_started:
+  - text: Recording started. please start Reading...
+  utter_please_enroll:
+  - text: You need to enroll to proceed further. Would you like to enroll now?
+    buttons:
+    - payload: /enroll_now
+      title: Enroll Now
+    - payload: /deny
+      title: Not Now
+  utter_please_authenticate:
+  - text: You need to authenticate to proceed further.
+    buttons:
+    - payload: /authenticate_now
+      title: Authenticate Now
+    - payload: /deny
+      title: Not Now
+  utter_enrollment_success:
+  - text: Your enrollment process in success. You need to do verification to proceed further. Please click on the record button below and read the following passage to verify yourself.
+  utter_exceed_max_attempts:
+  - text: You have exceeded your maximum attempts in verification process. You cannot proceed further.Please try again later
+  utter_serv_type_message:
+  - text: Glad to help you {name}. your request is recieved. our agent will get back to you and assist you further.
+  utter_ask_serviceType:
+  - text: What are you looking to apply for exactly?
+    buttons:
+    - payload: /applyServices{{"serviceType":"credit card"}}
+      title: credit card
+    - payload: /applyServices{{"serviceType":"debit card"}}
+      title: Debit card
+    - payload: /applyServices{{"serviceType":"internet banking"}}
+      title: Internet Banking
+    - payload: /applyServices{{"serviceType":"Mobile banking"}}
+      title: Mobile banking
+    - payload: /applyServices{{"serviceType":"cheque book"}}
+      title: Cheque Book
+  utter_ask_LoanType:
+  - text: What type of loan?
+    buttons:
+    - payload: /Apply_Loan{{"LoanType":"Gold"}}
+      title: Gold Loan
+    - payload: /Apply_Loan{{"LoanType":"Educational"}}
+      title: Educational Loan
+    - payload: /Apply_Loan{{"LoanType":"Personal"}}
+      title: Personal Loan
+    - payload: /Apply_Loan{{"LoanType":"Vehicle"}}
+      title: Vehicle Loan
+    - payload: /Apply_Loan{{"LoanType":"Business"}}
+      title: Business Loan
+  utter_transfer_success:
+  - text: Your refund to fund transfer is processed successfully. Your current account balance is 53722
+  utter_ask_DepositType:
+  - text: What type of deposit?
+    buttons:
+    - payload: /Deposit{{"DepositType":"Fixed"}}
+      title: Fixed
+    - payload: /Deposit{{"DepositType":"RD"}}
+      title: RD
+    - payload: /Deposit{{"DepositType":"Tax Saving"}}
+      title: Tax saving
+  utter_ask_transfer_type:
+  - text: what type of transfer?
+    buttons:
+    - payload: /Fund_Transfer{{"transfer_type":"NEFT"}}
+      title: NEFT
+    - payload: /Fund_Transfer{{"transfer_type":"IMPS"}}
+      title: IMPS
+    - payload: /Fund_Transfer{{"transfer_type":"RTGS"}}
+      title: RTGS
+actions:
+- action_Apply_Loan
+- action_Deposit
+- action_apply_services
+- action_ask_for_enroll
+- action_ask_for_verification
+- action_balance_enquiry
+- action_biometric_enrollment
+- action_biometric_process
+- action_biometric_verification
+- action_check_db
+- action_get_details
+- action_get_loan_form_details
+- action_greet_user
+- action_set_current_intent
+- action_submit
+- action_video
+- open_account
+- utter_ask_cust_id
+- utter_authenticate_yourself
+- utter_contact_agent_prompt
+- utter_enroll_yourself
+- utter_enrollment_success
+- utter_greet
+- utter_message_sav_acc
+- utter_need_assistance
+- utter_please_authenticate
+- utter_please_enroll
+- utter_serv_type_message
+- utter_text_to_authenticate
+- utter_text_to_enroll
+forms:
+  user_details_form:
+    required_slots:
+      name:
+      - type: from_text
+        intent: my_name
+      cust_id:
+      - type: from_text
+        intent: mobile_number
+  account_open_form:
+    required_slots:
+      name:
+      - type: from_text
+      AccType:
+      - type: from_entity
+        entity: AccType
+  apply_services_form:
+    required_slots:
+      name:
+      - type: from_text
+      cust_id:
+      - type: from_text
+      serviceType:
+      - type: from_entity
+        entity: serviceType
+  apply_loan_form:
+    required_slots:
+      name:
+      - type: from_text
+      LoanType:
+      - type: from_entity
+        entity: LoanType
+      custType:
+      - type: from_entity
+        entity: custType
+  open_Deposit_form:
+    required_slots:
+      name:
+      - type: from_text
+      cust_id:
+      - type: from_text
+      DepositType:
+      - type: from_entity
+        entity: DepositType
+  fund_transfer_form:
+    required_slots:
+      name:
+      - type: from_text
+      cust_id:
+      - type: from_text
+      tran_Acc_no:
+      - type: from_text
+      amount:
+      - type: from_text
+      transfer_type:
+      - type: from_entity
+        entity: transfer_type

@@ -1,0 +1,254 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hai
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: OpenNewAccount
+  examples: |
+    - I would like to open a new account.
+    - Open account
+    - How to open a new account
+    - Can you guide me to open a account.
+    - Need help in opening an account.
+    - How to open a [savings](AccType) account.
+    - Open a new [Current](AccType) account.
+    - [PF](AccType) Account.
+    - [Savings](AccType)
+- intent: CustomerCare
+  examples: |
+    - I want to contact an agent
+    - Connect me to an agent.
+    - Contact customer care.
+    - May i speak to an person
+    - can you connect me to an agent.
+    - talk to customer services
+    - call service center
+- intent: tell_name
+  examples: |
+    - what is your name?
+    - tell me your name
+    - what others call you
+    - what should i call you?
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: my_name
+  examples: |
+    - my name is [Bhuvana](name)
+    - [Bhuvi](name)
+    - [rahul](name) is my name
+    - [priya](name) this side
+    - people call me [devi](name)
+    - [bhuvana](name)
+    - [ram](name)
+    - my name is [fernandes](name)
+- intent: mobile_number
+  examples: |
+    - my number is [873847221](number)
+    - [989273944](number)
+    - [762763823](number) is my number
+    - my nobile number is [862836823](number)
+    - [9876543210](number)
+    - my number is [9876543210](number)
+    - [8888888888](number)
+    - [123456](number)
+- intent: cust_id
+  examples: |
+    - my customer id is [873231](cust_id)
+    - [82711](cust_id)
+    - [29381](cust_id) is my customer id.
+    - It is [13522](cust_id)
+    - [176452](cust_id)
+- intent: play_video
+  examples: |
+    - play the mentioned video
+    - open the url
+    - open the link in browser
+    - show me the video that i asked for
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+- intent: record_authenticate
+  examples: |
+    - record_authenticate
+    - start recording for authentication
+- intent: record_enroll
+  examples: |
+    - record for enroll
+    - start recording for enrollment
+- intent: enroll_now
+  examples: |
+    - Enroll Now
+    - Yes. I want to enroll
+    - enroll me Now
+    - please enroll
+    - enrollnow
+- intent: authenticate_now
+  examples: |
+    - authenticate Now
+    - ok. authenticate me now
+- intent: verify_now
+  examples: |
+    - Verify Now
+    - verify me now
+    - I would like to do the verification now.
+- intent: check_balance
+  examples: |
+    - I want to check my account balance.
+    - check balance
+    - how much do i have in my account
+    - tell me my account balance
+    - fund balance in my account
+    - balance money
+    - check account balance
+- intent: applyServices
+  examples: |
+    - I want to apply [credit](serviceType) card
+    - I want to apply [creditcard](serviceType)
+    - [debit](serviceType)card
+    - [debitcard](serviceType)
+    - Apply [netBanking](serviceType)
+    - How to apply for [mobileBanking](serviceType)
+    - procedure to apply [chequeBook](serviceType)
+    - need guidance to apply [debit](serviceType) card
+    - apply services
+- intent: Apply_Loan
+  examples: |
+    - I want to apply a loan
+    - ApplyLoan
+    - Apply loan
+    - apply a loan
+    - I want to apply a [Gold](LoanType) loan
+    - I want to apply a [Personal](LoanType) loan
+    - [vehicle](LoanType) loan
+    - [educational](LoanType) loan
+    - I want to apply [Business](LoanType) loan
+    - [Gold](LoanType) loan
+    - [Personal](LoanType) loan
+    - [Business](LoanType) loan
+    - [Gold](LoanType)
+    - [Personal](LoanType)
+    - [vehicle](LoanType)
+    - [educational](LoanType)
+    - [Business](LoanType)
+    - apply loan
+
+- intent: Deposit
+  examples: |
+    - I want to put a deposit
+    - deposit
+    - Apply deposit
+    - I want to make deposit
+    - I want to make a deposit
+    - Make deposit
+    - I want to make a [Fixed](DepositType) deposit
+    - I want to make a [RD](DepositType) deposit
+    - I want to make a [Tax savings](DepositType) deposit
+    - [Fixed](DepositType) depositv
+    - [RD](DepositType) deposit
+    - [Tax savings](DepositType) deposit
+
+- intent: Fund_Transfer
+  examples: |
+    - I want to do fund transfer.
+    - Fund transfer
+    - [NEFT](transfer_type) transfer.
+    - I would like to transfer fund from my account.
+    - I want to proceed with an [IMPS](transfer_type) transfer.
+    - transfer funds through [RTGS](transfer_type).
+    - money transfer
+    - transfer money from my account
+
+- intent: checkcustStatus
+  examples: |
+    - I am a [new](custType) customer
+    - [Existing](custType) customer
+    - yes. I am [new](custType)
+    - No.. am an [existing](custType)customer
+    - [new](custType)
+
+- regex: name
+  examples: |
+    - [a-zA-Z\s]+$
+- regex: number
+  examples: |
+    - [0-9]{10}

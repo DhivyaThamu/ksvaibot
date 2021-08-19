@@ -1,0 +1,35 @@
+version : '3.0'
+
+services:
+    rasa: 
+        image: rasa/rasa:latest
+        ports:
+            - "5005:5005"
+        volumes: 
+            - ./models:/app/models
+            - ./config:/app/config
+            - . :/app
+            - ./actions:/app/actions
+        command:
+            - run
+            - --cors
+            - '*'
+    
+    action-server:
+        image: rasa/rasa-sdk:latest
+        volumes: 
+            - ./actions:/app/actions
+        ports:
+            - "5055:5055"
+
+    # mongo:
+    #     image: mongo
+    #     ports:
+    #         - 27017:27017
+    # mongo-express:  # this service is a MongoDB UI, and is optional
+    #     image: mongo-express
+    #     depends_on:
+    #         - mongo
+    #     ports:
+    #         - 8081:8081
+    

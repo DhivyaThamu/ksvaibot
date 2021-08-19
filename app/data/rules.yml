@@ -1,0 +1,97 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# - rule: Check balance
+#   steps:
+#   - intent: check_balance
+#   - action: user_details_form
+#   - active_loop: user_details_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_check_db
+
+# - rule: Authenticate User
+#   condition:
+#   - slot_was_set:
+#     - BiometricStatus: Enrolled
+#   steps:
+#   - action: utter_please_authenticate
+
+
+# - rule: verification is success for balance enquiry
+#   condition:
+#   - slot_was_set:
+#     - verificationStatus: success
+#   steps:
+#   - action: action_balance_enquiry
+
+# - rule: verification failed for balance enquiry
+#   condition:
+#   - slot_was_set:
+#     - verificationStatus: failed
+#   steps: 
+#   - action: utter_exceed_max_attempts
+
+
+
+
+# - rule: Activate form for CustomerCare
+#   steps:
+#   - intent: CustomerCare
+#   - action: user_details_form
+#   - active_loop: user_details_form
+
+# - rule: Submit form for CustomerCare
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: user_details_form
+#   steps:
+#   # Form is deactivated
+#   - action: user_details_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: action_submit
+#   - action: utter_contact_agent_prompt
+#   - action: utter_need_assistance
+
+# - rule: Activate form for Open account
+#   steps:
+#     - intent: OpenNewAccount
+#     - action: account_open_form
+#     - active_loop: account_open_form
+
+# - rule: Submit form for Open account
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: account_open_form
+#   steps:
+#   # Form is deactivated
+#   - action: account_open_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: action_submit
+#   - action: utter_authenticate_yourself
+#   - action: utter_text_to_authenticate
+#   - intent: Record
+#   - action: action_record
+
+- rule: out-of-scope
+  steps:
+  - intent: nlu_fallback
+  - action: utter_out_of_scope

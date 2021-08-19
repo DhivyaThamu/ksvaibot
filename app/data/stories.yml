@@ -1,0 +1,134 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: user need assistance
+  steps:
+  - action: utter_need_assistance
+  - intent : affirm
+  - action: utter_greet
+
+- story: user does not  need assistance
+  steps:
+  - action: utter_need_assistance
+  - intent : deny
+  - action: utter_goodbye
+
+- story: check_balance_path_1
+  steps:
+  - intent: check_balance
+  - action: action_set_current_intent
+  - action: user_details_form
+
+  - active_loop: user_details_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_check_db
+
+- story :  OpenNewAccount
+  steps:
+    - intent: OpenNewAccount
+    - action: account_open_form
+    - active_loop: account_open_form
+    - active_loop: null
+    - action: open_account
+  
+- story: enroll
+  steps:
+  - intent: enroll_now
+  - action: action_ask_for_enroll
+
+  - intent: record_enroll
+  - action: action_biometric_enrollment
+
+- story: authenticate
+  steps:
+  - intent: authenticate_now
+  - action: action_ask_for_verification
+
+  - intent: record_authenticate
+  - action: action_biometric_verification
+
+  
+- story: Customer care
+  steps:
+  - intent: CustomerCare
+  - action: utter_contact_agent_prompt
+  - action: utter_need_assistance
+
+- story: Apply Services
+  steps:
+  - intent: applyServices
+  - action: apply_services_form
+  - active_loop: apply_services_form
+  - active_loop: null
+  - action: action_apply_services
+  - action: utter_need_assistance
+ 
+- story: make Deposit
+  steps: 
+  - intent: Deposit
+  - action: open_Deposit_form
+ 
+  - active_loop: open_Deposit_form
+  - active_loop: null
+  - action: action_Deposit
+
+- story: fund transfer
+  steps:
+  - intent: Fund_Transfer
+  - action: action_set_current_intent
+  - action: fund_transfer_form
+  - active_loop: fund_transfer_form
+  - active_loop: null
+  - action: action_check_db
+  
+- story: interactive_story_1
+  steps:
+  - intent: Apply_Loan
+  - action: apply_loan_form
+  - active_loop: apply_loan_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_get_loan_form_details
+
+- story: loan_path 2
+  steps:
+    - action: action_get_loan_form_details
+    - intent: cust_id
+    - action: action_Apply_Loan
+
+- story: loan_path 3
+  steps:
+    - action: action_get_loan_form_details
+    - intent: mobile_number
+    - action: action_Apply_Loan
+
+
