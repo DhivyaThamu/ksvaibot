@@ -6,4 +6,3 @@ then
 fi
 
 rasa run -m models --enable-api --cors "*" --debug --port $PORT
-rasa run actions --port 5055
