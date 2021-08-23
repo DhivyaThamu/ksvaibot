@@ -6,6 +6,7 @@ COPY requirements.txt /app/requirements.txt
 
 USER root
 RUN pip install --upgrade pip
+RUN apt-get update \ && apt-get install libportaudio2 libportaudiocpp0 portaudio19-dev libasound-dev libsndfile1-dev -y \ && pip install pyaudio
 RUN rasa train
 RUN pip install --requirement /app/requirements.txt
 RUN rasa run actions
