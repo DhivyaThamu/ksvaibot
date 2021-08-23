@@ -3,3 +3,4 @@ pydub==0.25.1
 pymongo==3.10.1
 scipy==1.7.0
 sounddevice==0.4.2
+libportaudio-dev==18.1
