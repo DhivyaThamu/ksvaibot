@@ -7,5 +7,6 @@ USER root
 
 RUN rasa train
 RUN chmod a+rwx /app/server.sh
+RUN rasa run actions --port 5055
 
 ENTRYPOINT ["/app/server.sh"]
