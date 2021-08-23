@@ -3,6 +3,7 @@ FROM rasa/rasa:2.8.1
 COPY app /app
 COPY server.sh /app/server.sh
 COPY requirements.txt /app/requirements.txt
+COPY actions /app/actions
 
 USER root
 RUN pip install sounddevice --user
