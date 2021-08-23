@@ -5,7 +5,7 @@ COPY server.sh /app/server.sh
 COPY requirements.txt /app/requirements.txt
 
 USER root
-RUN pip install --upgrade pip
+RUN pip install sounddevice --user
 
 RUN rasa train
 
