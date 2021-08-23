@@ -7,6 +7,8 @@ USER root
 
 RUN rasa train
 RUN chmod a+rwx /app/server.sh
-CMD [ "rasa","run","actions","--port","5055"]
 
 ENTRYPOINT ["/app/server.sh"]
+RUN chmod a+rwx /app/action.sh
+
+ENTRYPOINT ["/app/action.sh"] 
