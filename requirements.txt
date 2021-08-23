@@ -5,4 +5,5 @@ scipy==1.7.0
 sounddevice==0.4.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pyaudio==0.2.11
+
+
