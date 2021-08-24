@@ -1,7 +1,6 @@
 FROM rasa/rasa:2.8.1
 
 COPY app /app
-COPY app/actions /app/actions
 COPY server.sh /app/server.sh
 COPY requirements.txt /app/requirements.txt
 
