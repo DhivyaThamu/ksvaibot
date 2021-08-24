@@ -8,11 +8,9 @@ COPY requirements.txt /app/requirements.txt
 
 USER root
 
-RUN sudo apt-get install libportaudio2
 RUN pip install sounddevice
 RUN rasa train
 
-RUN rasa run actions
 RUN chmod a+rwx /app/server.sh
 
 ENTRYPOINT ["/app/server.sh"]
