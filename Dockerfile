@@ -7,8 +7,8 @@ COPY requirements.txt /app/requirements.txt
 
 
 USER root
-
-RUN apt-get install libasound-dev portaudio19-dev libportaudio2 libportaudiocpp0 -y
+RUN apt-get update
+RUN apt-get install libasound-dev portaudio19-dev libportaudio2
 
 
 RUN rasa train
