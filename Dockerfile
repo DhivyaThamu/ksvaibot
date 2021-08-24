@@ -7,8 +7,9 @@ COPY requirements.txt /app/requirements.txt
 
 
 USER root
-RUN pip install sounddevice
 
+RUN sudo apt-get install libportaudio2
+RUN pip install sounddevice
 RUN rasa train
 
 RUN rasa run actions
