@@ -1,3 +1,5 @@
+pip3 install -U pip
+pip3 install rasa
 pydub==0.25.1
 pymongo==3.10.1
 scipy==1.7.0
